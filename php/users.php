@@ -92,7 +92,7 @@ $result = $connect->query($sql);
                 <input type="text" id="editUsersName" name="usersName" required>
 
                 <label>User Phone:</label>
-                <input type="number" id="editUsersPhone" name="usersPhone" required>
+                <input type="number" id="editUsersPhone" name="usersPhone" maxlength="11" required>
 
                 <label>User Email:</label>
                 <input type="email" id="editUsersEmail" name="usersEmail" required>
@@ -132,6 +132,11 @@ $result = $connect->query($sql);
 
             openModal('editModal');
         }
+
+        // allow only 11 digit max number
+        document.getElementById("editUsersPhone").addEventListener("input", function () {
+            this.value = this.value.replace(/\D/g, '').slice(0, 11);
+        });
     </script>
 </body>
 

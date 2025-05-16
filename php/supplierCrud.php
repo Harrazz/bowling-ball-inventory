@@ -16,19 +16,6 @@ function titleCase($string)
     return ucwords(strtolower(trim($string)));
 }
 
-// checking duplicate entry
-function duplicateSupplier($connect, $suppName, $suppPhone, $suppEmail, $suppAddress)
-{
-    $stmt = $connect->prepare("SELECT COUNT(*) FROM supplier WHERE suppName = ? OR suppPhone = ? OR suppEmail = ? OR suppAddress = ?");
-    $stmt->bind_param("ssss", $suppName, $suppPhone, $suppEmail, $suppAddress);
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-
-    return $row['COUNT(*)'] > 0;
-}
-
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 // add supplier
@@ -38,12 +25,6 @@ if ($action === 'add') {
     // apply title case
     $suppName = titleCase($_POST['suppName']);
     $suppAddress = titleCase($_POST['suppAddress']);
-
-    // checking duplicate
-    if (duplicateSupplier($connect, $suppName, $_POST['suppPhone'], $_POST['suppEmail'], $suppAddress)) {
-        header("Location: suppliers.php?error=duplicate");
-        exit();
-    }
 
     $stmt = $connect->prepare("INSERT INTO supplier (suppID, suppName, suppPhone, suppEmail, suppAddress, suppStatus) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $suppID, $suppName, $_POST['suppPhone'], $_POST['suppEmail'], $suppAddress, $_POST['suppStatus']);
@@ -55,11 +36,6 @@ elseif ($action === 'edit') {
     // apply title case
     $suppName = titleCase($_POST['suppName']);
     $suppAddress = titleCase($_POST['suppAddress']);
-
-    if (duplicateSupplier($connect, $suppName, $_POST['suppPhone'], $_POST['suppEmail'], $suppAddress)) {
-        header("Location: suppliers.php?error=duplicate");
-        exit();
-    }
 
     $stmt = $connect->prepare("UPDATE supplier SET suppName=?, suppPhone=?, suppEmail=?, suppAddress=?, suppStatus=? WHERE suppID=?");
     $stmt->bind_param("ssssss", $suppName, $_POST['suppPhone'], $_POST['suppEmail'], $_POST['suppAddress'], $_POST['suppStatus'], $_POST['suppID']);
