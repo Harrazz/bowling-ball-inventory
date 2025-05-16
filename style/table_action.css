@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: white;
+    max-height: calc(100vh - 250px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+thead {
+    background-color: #0E2545;
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+th:hover {
+    background-color: #1b59b1;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f7fafc;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 30vh;
+}
+
+.add-button button {
+    padding: 10px 20px;
+    background-color: #0E2545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-button button:hover {
+    background-color: #1a365d;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 6px 12px;
+    gap: 6px;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.edit-btn:hover {
+    background-color: #1ecf27;
+}
+
+.delete-btn {
+    background-color: #f44336;
+}
+
+.delete-btn:hover {
+    background-color: #e41010;
+}
+
+@media (max-width: 768px) {
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+}

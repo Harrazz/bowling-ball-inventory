@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0E2545, #0d4b8f);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+}
+
+.bowling-image {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.bowling-image:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.forgot-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, #0E2545, #2c5282);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+p {
+    font-size: 0.8rem;
+    color: #3d3c3c;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+
+.text-start {
+    text-align: left;
+    margin-bottom: 1.2rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: #3d3c3c;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #0E2545;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.btn-submit {
+    display: inline-block;
+    width: 100%;
+    padding: 0.7rem 1rem;
+    background: linear-gradient(90deg, #0E2545, #2c5282);
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #2c5282, #0E2545);
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 15px;
+}
+
+a {
+    color: #2c5282;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0E2545;
+    text-decoration: underline;
+}
+
+.text-danger {
+    color: #EF4444;
+}
+
+.text-success {
+    color: #16A34A;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@media (max-width: 640px) {
+    .signup-card {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
