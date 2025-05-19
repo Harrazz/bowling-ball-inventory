@@ -2,6 +2,7 @@
 session_start();
 include "connection.php";
 
+// generate product id
 function generateProductID($connect)
 {
     $sql = "SELECT MAX(CAST(SUBSTRING(productID, 2) AS UNSIGNED)) AS maxID FROM product WHERE productID LIKE 'B%'";
@@ -10,6 +11,7 @@ function generateProductID($connect)
     return 'B' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 }
 
+// capitalize first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));

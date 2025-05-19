@@ -9,7 +9,7 @@ function titleCase($string)
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
-// edit users
+// edit users profile
 if ($action === 'edit') {
     // apply title case
     $usersName = titleCase($_POST['usersName']);

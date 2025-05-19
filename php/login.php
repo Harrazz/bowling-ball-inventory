@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Check if the user exist and password matche
+    // Check if the user exist and password matches
     if ($result->num_rows === 1) {
         // Login successful
         $row = $result->fetch_assoc(); // Fetch the row from the result
-        $_SESSION['users_id'] = $staff_id; // Store staff ID
-        $_SESSION['usersName'] = $row['usersName']; // Store staff name
-        $_SESSION['usersRole'] = $row['usersRole']; // Store role
-        header("Location: ./homepage.php"); // Redirect to homepage
+        $_SESSION['users_id'] = $staff_id;
+        $_SESSION['usersName'] = $row['usersName'];
+        $_SESSION['usersRole'] = $row['usersRole'];
+        header("Location: ./homepage.php");
         exit();
     } else {
         // Invalid staff or pass

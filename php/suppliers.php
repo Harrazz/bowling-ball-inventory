@@ -160,6 +160,7 @@ $result = $connect->query($sql);
             this.value = this.value.replace(/\D/g, '').slice(0, 11);
         });
 
+        // allow 11 digit number edit supplier phone
         document.getElementById("editSuppPhone").addEventListener("input", function () {
             this.value = this.value.replace(/\D/g, '').slice(0, 11);
         });

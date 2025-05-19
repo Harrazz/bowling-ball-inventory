@@ -2,7 +2,7 @@
 session_start();
 include "connection.php";
 
-// generate supplier id
+// generate supplier id 
 function generateSupplierID($connect)
 {
     $sql = "SELECT MAX(CAST(SUBSTRING(suppID, 4) AS UNSIGNED)) AS maxID FROM supplier WHERE suppID LIKE 'SUP%'";

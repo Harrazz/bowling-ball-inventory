@@ -189,7 +189,7 @@ $result = $connect->query($sql);
                     <input type="number" step="0.01" id="editPrice" name="price" required>
 
                     <label>Quantity:</label>
-                    <input type="number" id="editQty" name="qty" required>
+                    <input type="number" id="editQty" name="qty" min="0" required>
 
                     <button type="submit" class="btn-submit">Save Changes</button>
                 </form>
@@ -216,6 +216,7 @@ $result = $connect->query($sql);
     <script src="../javascript/sort.js"></script>
     <script src="../javascript/modal.js"></script>
     <script>
+        // open edit modal
         function openEditModal(productID, suppID, shelf, brand, model, weight, price, qty) {
             document.getElementById("editProductID").value = productID;
             document.getElementById("editSuppID").value = suppID;
@@ -229,6 +230,7 @@ $result = $connect->query($sql);
             openModal('editModal');
         }
 
+        // open delete modal
         function openDeleteModal(productID) {
             document.getElementById("deleteProductID").value = productID;
             openModal('deleteModal');

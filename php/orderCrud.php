@@ -2,6 +2,7 @@
 session_start();
 include "connection.php";
 
+// generate order id
 function generateOrderID($connect)
 {
     $sql = "SELECT MAX(CAST(SUBSTRING(orderID, 2) AS UNSIGNED)) AS maxID FROM orders WHERE orderID LIKE 'O%'";

@@ -5,7 +5,7 @@ session_start();
 session_unset();
 session_destroy();
 
-// Redirect to homepage
+// Redirect to the homepage
 header("Location: ../index.html");
 exit();
 ?>

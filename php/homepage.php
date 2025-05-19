@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// get current user session
 $usersName = isset($_SESSION['usersName']) ? $_SESSION['usersName'] : "Guest";
 ?>
 
@@ -32,9 +33,12 @@ $usersName = isset($_SESSION['usersName']) ? $_SESSION['usersName'] : "Guest";
             <p>Welcome to the Bowling Ball Inventory System</p>
         </section>
 
+        <!-- dashboard card shows current info -->
         <section class="dashboard">
             <div class="dash-card">
                 <h3>Total Bowling Balls Available</h3>
+
+                <!-- get total bowling ball available -->
                 <?php
                 include "connection.php";
                 $result = $connect->query("SELECT SUM(qty) AS totalBalls FROM product");
@@ -45,6 +49,8 @@ $usersName = isset($_SESSION['usersName']) ? $_SESSION['usersName'] : "Guest";
 
             <div class="dash-card">
                 <h3>Active Staff Members</h3>
+
+                <!-- get total of active users -->
                 <?php
                 include "connection.php";
                 $activeUsersResult = $connect->query("SELECT COUNT(*) AS activeUsers FROM users WHERE usersStatus = 'Active'");
@@ -55,6 +61,8 @@ $usersName = isset($_SESSION['usersName']) ? $_SESSION['usersName'] : "Guest";
 
             <div class="dash-card">
                 <h3>Active Suppliers</h3>
+
+                <!-- get total of active supplier -->
                 <?php
                 include "connection.php";
                 $activeSuppliersResult = $connect->query("SELECT COUNT(*) AS activeSuppliers FROM supplier WHERE suppStatus = 'Active'");

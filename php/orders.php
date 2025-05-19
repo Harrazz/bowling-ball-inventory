@@ -150,6 +150,7 @@ $result = $connect->query($sql);
     <script src="../javascript/sort.js"></script>
     <script src="../javascript/modal.js"></script>
     <script>
+        // total up the amount (price * quantity)
         function updateTotalAmount() {
             const productSelect = document.getElementById("productSelect");
             const quantityInput = document.getElementById("quantityInput");

@@ -16,6 +16,7 @@ $result = $connect->query($sql);
     <!-- favicon -->
     <link rel="icon" href="../bowling.ico" type="image/x-icon" />
 
+    <!-- css file -->
     <link rel="stylesheet" href="../style/users.css">
     <link rel="stylesheet" href="../style/table_action.css">
     <link rel="stylesheet" href="../style/modal.css">

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($update_stmt->affected_rows === 1) {
                 $success_message = "Password successfully updated. <br><a href='login.php'>Login here</a>";
             } else {
-                $error_message = "Error updating password. Please try again.";
+                $error_message = "Password cannot be same as old password!";
             }
 
             $update_stmt->close();
@@ -106,6 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p><a href="login.php">Back to Login</a></p>
     </div>
 
+    <!-- password requiremnet -->
     <script>
         const newPasswordInput = document.getElementById('new_password');
         const requirements = document.getElementById('password-requirements');

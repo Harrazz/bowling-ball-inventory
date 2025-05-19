@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 
-// Function to generate a unique users ID starting with "ST"
+// generate user ID
 function generateUsersID($connect)
 {
     $sql = "SELECT usersID FROM users WHERE usersID LIKE 'ST%' ORDER BY usersID DESC LIMIT 1";
@@ -19,6 +19,7 @@ function generateUsersID($connect)
     return 'ST' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 }
 
+// function capitalize first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));
@@ -46,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result_phone = $stmt_phone->get_result();
 
     if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{6,}$/', $password)) {
-        $error_message = "Password must be at least 6 characters and include an uppercase letter and a number.";
+        $error_message = "Password must be at least 6 characters and include an uppercase letter and a number."; //password not followed requirement
     } elseif ($result_email->num_rows > 0) {
-        $error_message = "Email already exists.";
+        $error_message = "Email already exists."; //email is used by other user
     } elseif ($result_phone->num_rows > 0) {
-        $error_message = "Phone number already exists.";
+        $error_message = "Phone number already exists."; //phone number is used by other user
     } else {
         $users_id = generateUsersID($connect);
 
