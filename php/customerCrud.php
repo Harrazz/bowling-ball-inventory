@@ -27,7 +27,7 @@ if ($action === 'add') {
     $stmt = $connect->prepare("INSERT INTO customer (custID, custName, custPhone, custEmail) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $custID, $custName, $_POST['custPhone'], $_POST['custEmail']);
 
-    $stmt->execute() ? header("Location: customer.php?success=added") : header("Error adding customer: " . $stmt->error);
+    $stmt->execute() ? header("Location: customer.php?success=added") : header("Location: customer.php?error=add");
 }
 
 // edit customer

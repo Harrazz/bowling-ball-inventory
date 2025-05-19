@@ -130,13 +130,13 @@ $result = $connect->query($sql);
                     <input type="text" name="model" required>
 
                     <label>Weight:</label>
-                    <input type="number" step="0.01" name="weight" required>
+                    <input type="number"  name="weight" min="6" required>
 
                     <label>Price:</label>
                     <input type="number" step="0.01" name="price" required>
 
                     <label>Quantity:</label>
-                    <input type="number" name="qty" required>
+                    <input type="number" name="qty" min="1" required>
 
                     <button type="submit" class="btn-submit">Add Product</button>
                 </form>
@@ -183,7 +183,7 @@ $result = $connect->query($sql);
                     <input type="text" id="editModel" name="model" required>
 
                     <label>Weight:</label>
-                    <input type="number" step="0.01" id="editWeight" name="weight" required>
+                    <input type="number" id="editWeight" name="weight" min="6" required>
 
                     <label>Price:</label>
                     <input type="number" step="0.01" id="editPrice" name="price" required>
