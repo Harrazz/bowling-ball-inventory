@@ -101,6 +101,7 @@ $result = $connect->query($sql);
                     <!-- Supplier Dropdown -->
                     <label>Supplier:</label>
                     <select name="suppID" required>
+                        <!-- get active supplier -->
                         <?php
                         $suppResult = $connect->query("SELECT suppID, suppName FROM supplier WHERE suppStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):
@@ -154,6 +155,7 @@ $result = $connect->query($sql);
 
                     <label>Supplier ID:</label>
                     <select id="editSuppID" name="suppID" required>
+                        <!-- get active supplier -->
                         <?php
                         $suppResult = $connect->query("SELECT suppID, suppName FROM supplier WHERE suppStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):

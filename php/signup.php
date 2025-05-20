@@ -4,19 +4,10 @@ include "connection.php";
 // generate user ID
 function generateUsersID($connect)
 {
-    $sql = "SELECT usersID FROM users WHERE usersID LIKE 'ST%' ORDER BY usersID DESC LIMIT 1";
+    $sql = "SELECT MAX(CAST(SUBSTRING(usersID, 3) AS UNSIGNED)) AS maxID FROM users WHERE usersID LIKE 'ST%'"; // Retrieve max user number from existing user id
     $result = $connect->query($sql);
-
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $lastID = $row['usersID'];
-        $number = (int) substr($lastID, 3);
-        $newNumber = $number + 1;
-    } else {
-        $newNumber = 1;
-    }
-
-    return 'ST' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+    $newNumber = $result && $result->num_rows > 0 ? $result->fetch_assoc()['maxID'] + 1 : 1; // Calculate the next user ID (+1)
+    return 'ST' . str_pad($newNumber, 3, '0', STR_PAD_LEFT); // Return formatted User ID
 }
 
 // uppercase the first letter
@@ -159,9 +150,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 requirements.classList.remove('hidden');
                 requirements.style.display = "block";
 
-                const hasUpperCase = /[A-Z]/.test(password);
-                const hasNumber = /[0-9]/.test(password);
-                const hasMinLength = password.length >= 6;
+                const hasUpperCase = /[A-Z]/.test(password); //ensure password have uppercase letter
+                const hasNumber = /[0-9]/.test(password); //ensure password have number
+                const hasMinLength = password.length >= 6; //ensure password minimum length is 6
 
                 if (hasUpperCase && hasNumber && hasMinLength) {
                     requirements.textContent = "Password looks good!";
