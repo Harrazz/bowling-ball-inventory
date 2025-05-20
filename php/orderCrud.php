@@ -17,8 +17,8 @@ $action = $_POST['action'] ?? $_GET['action'] ?? '';
 if ($action === 'add') {
     $orderID = generateOrderID($connect);
 
-    $stmt = $connect->prepare("INSERT INTO orders (orderID, usersID, custID, productID, qty, orderDate, orderTime, totAmount, payMethod) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssissds", $orderID, $_POST['usersID'], $_POST['custID'], $_POST['productID'], $_POST['qty'], $_POST['orderDate'], $_POST['orderTime'], $_POST['totAmount'], $_POST['payMethod']);
+    $stmt = $connect->prepare("INSERT INTO orders (orderID, usersID, productID, qty, orderDate, orderTime, totAmount, payMethod) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssissds", $orderID, $_POST['usersID'], $_POST['productID'], $_POST['qty'], $_POST['orderDate'], $_POST['orderTime'], $_POST['totAmount'], $_POST['payMethod']);
 
     if ($stmt->execute()) {
         // Deduct product when order is made

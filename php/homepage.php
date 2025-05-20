@@ -86,9 +86,9 @@ $usersName = isset($_SESSION['usersName']) ? $_SESSION['usersName'] : "Guest";
             </div>
 
             <div class="quick-card" style="background-color:rgb(212, 237, 218);">
-                <h3>Customer</h3>
-                <p>View Your Customer Data</p>
-                <button onclick="window.location.href='customer.php'">View all customer</button>
+                <h3>Order</h3>
+                <p>View Your Order Data</p>
+                <button onclick="window.location.href='orders.php'">View all customer</button>
             </div>
         </section>
 

@@ -11,6 +11,7 @@ function generateSupplierID($connect)
     return 'SUP' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 }
 
+// uppercase the first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));

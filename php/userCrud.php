@@ -2,6 +2,7 @@
 session_start();
 include "connection.php";
 
+// uppercase the first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));

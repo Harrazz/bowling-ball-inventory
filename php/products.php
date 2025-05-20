@@ -102,7 +102,7 @@ $result = $connect->query($sql);
                     <label>Supplier:</label>
                     <select name="suppID" required>
                         <?php
-                        $suppResult = $connect->query("SELECT suppID, suppName FROM supplier");
+                        $suppResult = $connect->query("SELECT suppID, suppName FROM supplier WHERE suppStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):
                             ?>
                             <option value="<?= $supp['suppID'] ?>"><?= htmlspecialchars($supp['suppName']) ?></option>
@@ -155,7 +155,7 @@ $result = $connect->query($sql);
                     <label>Supplier ID:</label>
                     <select id="editSuppID" name="suppID" required>
                         <?php
-                        $suppResult = $connect->query("SELECT suppID, suppName FROM supplier");
+                        $suppResult = $connect->query("SELECT suppID, suppName FROM supplier WHERE suppStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):
                             ?>
                             <option value="<?= $supp['suppID'] ?>"><?= htmlspecialchars($supp['suppName']) ?></option>

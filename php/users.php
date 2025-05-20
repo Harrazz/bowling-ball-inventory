@@ -99,7 +99,7 @@ $result = $connect->query($sql);
                 <input type="email" id="editUsersEmail" name="usersEmail" required>
 
                 <label>User Password:</label>
-                <input type="password" id="editUsersPassword" name="usersPassword" required>
+                <input type="text" id="editUsersPassword" name="usersPassword" required>
 
                 <label>User Role:</label>
                 <select id="editUsersRole" name="usersRole" required>

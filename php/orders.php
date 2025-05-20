@@ -28,7 +28,7 @@ $result = $connect->query($sql);
 
     <div class="main-content">
         <header class="page-header">
-            <h1>Sales</h1>
+            <h1>Orders</h1>
         </header>
 
         <div class="actions">
@@ -46,7 +46,6 @@ $result = $connect->query($sql);
                     <tr>
                         <th onclick="sortTable(0)">Order ID</th>
                         <th onclick="sortTable(1)">Staff ID</th>
-                        <th onclick="sortTable(2)">Cust ID</th>
                         <th onclick="sortTable(3)">Product ID</th>
                         <th onclick="sortTable(4)">Quantity</th>
                         <th onclick="sortTable(5)">Date</th>
@@ -61,7 +60,6 @@ $result = $connect->query($sql);
                         <tr>
                             <td><?= htmlspecialchars($row['orderID']) ?></td>
                             <td><?= htmlspecialchars($row['usersID']) ?></td>
-                            <td><?= htmlspecialchars($row['custID']) ?></td>
                             <td><?= htmlspecialchars($row['productID']) ?></td>
                             <td><?= htmlspecialchars($row['qty']) ?></td>
                             <td><?= htmlspecialchars($row['orderDate']) ?></td>
@@ -85,20 +83,10 @@ $result = $connect->query($sql);
                     <label>Staff:</label>
                     <select name="usersID" required>
                         <?php
-                        $suppResult = $connect->query("SELECT usersID, usersName FROM users");
+                        $suppResult = $connect->query("SELECT usersID, usersName FROM users WHERE usersStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):
                             ?>
                             <option value="<?= $supp['usersID'] ?>"><?= htmlspecialchars($supp['usersName']) ?></option>
-                        <?php endwhile; ?>
-                    </select>
-
-                    <label>Customer ID:</label>
-                    <select name="custID" required>
-                        <?php
-                        $suppResult = $connect->query("SELECT custID FROM customer");
-                        while ($supp = $suppResult->fetch_assoc()):
-                            ?>
-                            <option value="<?= $supp['custID'] ?>"><?= htmlspecialchars($supp['custID']) ?></option>
                         <?php endwhile; ?>
                     </select>
 
@@ -135,7 +123,7 @@ $result = $connect->query($sql);
                     <label>Payment Method:</label>
                     <select name="payMethod" required>
                         <option value="Cash">Cash</option>
-                        <option value="Credit Card">Bank Card</option>
+                        <option value="Bank Card">Bank Card</option>
                         <option value="E-Wallet">E-Wallet</option>
                     </select>
 

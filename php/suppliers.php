@@ -143,6 +143,7 @@ $result = $connect->query($sql);
     <script src="../javascript/sort.js"></script>
     <script src="../javascript/modal.js"></script>
     <script>
+        // open edit modal
         function openEditModal(suppID, suppName, suppPhone, suppEmail, suppAddress, suppStatus) {
 
             document.getElementById("editSuppID").value = suppID;

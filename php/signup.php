@@ -19,7 +19,7 @@ function generateUsersID($connect)
     return 'ST' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 }
 
-// function capitalize first letter
+// uppercase the first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));
@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt_phone->execute();
     $result_phone = $stmt_phone->get_result();
 
+    // error message
     if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{6,}$/', $password)) {
         $error_message = "Password must be at least 6 characters and include an uppercase letter and a number."; //password not followed requirement
     } elseif ($result_email->num_rows > 0) {
@@ -97,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <!-- <img src="../images/bowling logo.png" class="bowling-image"> -->
         <h2>Sign Up</h2>
 
+        <!-- display message -->
         <?php
         if (isset($error_message)) {
             echo "<p class='error-message'>$error_message</p>";
@@ -144,6 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         });
     </script>
 
+    <!-- password requirement -->
     <script>
         const passwordInput = document.getElementById('password');
         const requirements = document.getElementById('password-requirements');

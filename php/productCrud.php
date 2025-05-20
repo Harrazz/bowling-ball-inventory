@@ -11,7 +11,7 @@ function generateProductID($connect)
     return 'B' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
 }
 
-// capitalize first letter
+// uppercase first letter
 function titleCase($string)
 {
     return ucwords(strtolower(trim($string)));

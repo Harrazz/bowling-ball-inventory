@@ -36,8 +36,6 @@ session_start();
             <li class="nav-item"><a class="nav-link" href="../php/suppliers.php"><span
                         class="icon">🚚</span><span>Suppliers</span></a></li>
 
-            <li class="nav-item"><a class="nav-link" href="../php/customer.php"><span
-                        class="icon">👥</span><span>Customers</span></a></li>
             <li class="nav-item"><a class="nav-link" href="../php/orders.php"><span
                         class="icon">🛒</span><span>Orders</span></a></li>
 
