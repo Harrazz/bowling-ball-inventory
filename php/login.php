@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Login successful
         $row = $result->fetch_assoc(); // Fetch the row from the result
         $_SESSION['users_id'] = $staff_id;
-        $_SESSION['usersName'] = $row['usersName'];
-        $_SESSION['usersRole'] = $row['usersRole'];
-        header("Location: ./homepage.php");
+        $_SESSION['usersName'] = $row['usersName']; //store user name
+        $_SESSION['usersRole'] = $row['usersRole']; //store user role
+        header("Location: ./homepage.php"); //redirect to homepage
         exit();
     } else {
         // Invalid staff or pass

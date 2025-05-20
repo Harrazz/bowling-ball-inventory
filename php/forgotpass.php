@@ -3,14 +3,14 @@ include "connection.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $users_id = $_POST['users_id'];
-    $email = strtolower(trim($_POST['email']));
+    $email = strtolower(trim($_POST['email'])); //convert all letter to lowercase for email
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
 
     // Check if passwords match
     if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{6,}$/', $new_password)) {
         $error_message = "Password must be at least 6 characters and include an uppercase letter and a number.";
-    } elseif ($new_password !== $confirm_password) {
+    } elseif ($new_password !== $confirm_password) { 
         $error_message = "Passwords do not match.";
     } else {
         // Check if User ID and Email exist together
@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $update_stmt->bind_param("ss", $new_password, $users_id);
             $update_stmt->execute();
 
+            // check if the update was successful or not
             if ($update_stmt->affected_rows === 1) {
                 $success_message = "Password successfully updated. <br><a href='login.php'>Login here</a>";
             } else {

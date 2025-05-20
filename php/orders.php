@@ -24,7 +24,8 @@ $result = $connect->query($sql);
 </head>
 
 <body>
-    <?php include '../navbar_file/navbar.php'; ?>
+    <!-- include sidebar in the page -->
+    <?php include '../navbar_file/navbar.php'; ?> 
 
     <div class="main-content">
         <header class="page-header">
@@ -82,6 +83,7 @@ $result = $connect->query($sql);
 
                     <label>Staff:</label>
                     <select name="usersID" required>
+                        <!-- fetch active users from users table -->
                         <?php
                         $suppResult = $connect->query("SELECT usersID, usersName FROM users WHERE usersStatus = 'Active'");
                         while ($supp = $suppResult->fetch_assoc()):
@@ -92,6 +94,7 @@ $result = $connect->query($sql);
 
                     <label>Product:</label>
                     <select id="productSelect" name="productID" required onchange="updateTotalAmount()">
+                        <!-- fetch product from product table -->
                         <?php
                         $productResult = $connect->query("SELECT productID, brand, model, weight, price, qty FROM product");
                         while ($product = $productResult->fetch_assoc()):
@@ -155,7 +158,7 @@ $result = $connect->query($sql);
                 quantity = stock;
             }
 
-            totalAmount.value = (productPrice * quantity).toFixed(2);
+            totalAmount.value = (productPrice * quantity).toFixed(2); //calculate the total price
         }
     </script>
 </body>
