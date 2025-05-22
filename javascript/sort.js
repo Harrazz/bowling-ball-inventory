@@ -2,18 +2,21 @@
 function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("pageTable");
-    switching = true;
+    switching = true; //keep sorting active
 
-    dir = "asc";
+    dir = "asc"; //default sorting order
 
     while (switching) {
+        // keep sorting and fetchs all tbale row
         switching = false;
         rows = table.rows;
 
+        // loop through rows
         for (i = 1; i < (rows.length - 1); i++) {
 
             shouldSwitch = false;
 
+            // compare current row with next row
             x = rows[i].getElementsByTagName("TD")[n];
             y = rows[i + 1].getElementsByTagName("TD")[n];
 
@@ -31,6 +34,8 @@ function sortTable(n) {
                 }
             }
         }
+
+        // row swap
         if (shouldSwitch) {
 
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);

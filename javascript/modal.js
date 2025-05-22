@@ -1,7 +1,9 @@
+// make the modal visible at the center of the screen
 function openModal(id) {
     document.getElementById(id).style.display = "block";
 }
 
+// function to close modal and make it dissappear
 function closeModal(id) {
     document.getElementById(id).style.display = "none";
 }
