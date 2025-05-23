@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirm_password = $_POST['confirm_password'];
 
     // Check if passwords match
-    if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{6,}$/', $new_password)) {
+    if (!preg_match('/^(?=.*[A-Z])(?=.*\d).{6,}$/', $new_password)) { //password validation
         $error_message = "Password must be at least 6 characters and include an uppercase letter and a number.";
-    } elseif ($new_password !== $confirm_password) { 
+    } elseif ($new_password !== $confirm_password) { //checking if the password match
         $error_message = "Passwords do not match.";
     } else {
         // Check if User ID and Email exist together

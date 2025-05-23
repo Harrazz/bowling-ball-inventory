@@ -129,7 +129,7 @@ a:hover {
     text-decoration: underline;
 }
 
-
+/* fade in transition */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -142,6 +142,7 @@ a:hover {
     }
 }
 
+/* responsive screen */
 @media (max-width: 640px) {
     .signup-card {
         padding: 2rem;

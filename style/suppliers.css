@@ -24,6 +24,7 @@
     font-weight: 600;
 }
 
+/* fade in transition */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -36,6 +37,7 @@
     }
 }
 
+/* responsive screen */
 @media (max-width: 768px) {
     .page-header {
         padding: 6px 12px;

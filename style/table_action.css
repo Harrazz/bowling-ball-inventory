@@ -119,6 +119,7 @@ tbody tr:nth-child(even) {
     background-color: #e41010;
 }
 
+/* responsive screen */
 @media (max-width: 768px) {
 
     th,

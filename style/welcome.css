@@ -80,6 +80,7 @@ p {
     background: linear-gradient(90deg, #2c5282, #0E2545);
 }
 
+/* fade in transition */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -92,6 +93,7 @@ p {
     }
 }
 
+/* responsive page */
 @media (max-width: 640px) {
     .welcome-card {
         padding: 2rem;

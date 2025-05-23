@@ -23,12 +23,14 @@ function sortTable(n) {
             if (dir == "asc") {
                 if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 
+                    // mark a switch and break the loop
                     shouldSwitch = true;
                     break;
                 }
             } else if (dir == "desc") {
                 if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
 
+                    // mark a switch and break the loop
                     shouldSwitch = true;
                     break;
                 }
@@ -41,9 +43,11 @@ function sortTable(n) {
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
 
+            // each time switch done, increase this count by 1
             switchcount++;
         } else {
 
+            // if no switching been done and direction is asc, set the direction to desc and run loop again
             if (switchcount == 0 && dir == "asc") {
                 dir = "desc";
                 switching = true;
