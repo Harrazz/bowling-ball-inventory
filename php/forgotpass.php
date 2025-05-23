@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <p><a href="login.php">Back to Login</a></p>
     </div>
 
-    <!-- password requiremnet -->
+    <!-- password requirement -->
     <script>
         const newPasswordInput = document.getElementById('new_password');
         const requirements = document.getElementById('password-requirements');
